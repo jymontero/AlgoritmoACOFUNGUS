@@ -8,16 +8,22 @@ class LoadData:
 
    def __init__(self):
       self.data_Frame = pd.DataFrame()
-      self.dataAirport = pd.DataFrame()
-      #self.dataAirport = []
+      #elf.dataAirport = pd.DataFrame()
+      self.dataAirport = []
       self.listaBases = []
       self.dictnary_Base_Aer = {}
       self.horasObj = HoraData()
+      self.upLoadData()
 
    def printed(self, data):
       const = len(data)
       for data3 in data:
          print(data3)
+
+   def uniqueColumn(self,nameColum,data):
+      data3 = pd.DataFrame()
+      data3 = data[nameColum]
+      return data3
 
 #Metod que filtra todas las filas de un datafram
 #nameColumn: nombre de la columna por el cual filtrar
@@ -72,6 +78,9 @@ class LoadData:
    def getDataFrame(self):
       return self.data_Frame
 
+   def getDataAirport(self):
+      return self.dataAirport
+
 #retorna listadebases
    def getListaBases(self):
       return self.listaBases
@@ -79,7 +88,8 @@ class LoadData:
    def getBasesConexiones(self):
       return self.dictnary_Base_Aer
 
-#Metodo que carga el dataframe de un directorio
+#Descripción = Metodo que carga el dataframe de un directorio
+#Parametrros =
    def upLoadData(self):
       contenido = self.sizeDirectory()
 
@@ -92,10 +102,3 @@ class LoadData:
       self.distintData(' airport_dep ')
       self.crearDiccionario()
       print('DATASET CARGADO....\n','TIEMPO VUELO OK\n','DICCIONARIO OK')
-
-#load = LoadData()
-#load.upLoadData()
-#load.distintData(' airport_dep ')
-#print(load.listaBases)
-#aux = pd.DataFrame()"""
-#load.crearDiccionario()
